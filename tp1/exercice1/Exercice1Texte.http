@@ -1,0 +1,49 @@
+POST https://pdicost.univ-orleans.fr/.m1ws/enjoy/student
+Content-Type: application/x-www-form-urlencoded
+
+numeroEtudiant=o2181698
+###
+
+GET https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2181698
+Content-Type: application/x-www-form-urlencoded
+
+<> 2023-01-26T140452.200.xml
+
+###
+
+PUT https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2181698/identity
+Content-Type: application/xml
+
+<item>
+<nom>ATTE</nom>
+<prenom>Fabien</prenom>
+</item>
+
+<> 2023-01-26T140448.200.txt
+
+###
+
+PATCH https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2181698/location
+Content-Type: application/json
+
+//"adresse": "J'ai pas de maison"
+//"codePostal": "06 95 93 32 55"
+//"ville": "C'est un appel à l'aide"
+{
+  "codePostal": ""
+}
+
+###
+
+GET https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2181698/token
+Content-Type: application/x-www-form-urlencoded
+
+
+//Qydlc3QgdW4gYXBwZWwgw6AgbCdhaWRlSidhaSBwYXMgZGUgbWFpc29uNjk1OTMzMjU1QVRURUZhYmllbm8yMTgxNjk4
+###
+
+POST https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2181698/token
+Content-Type: application/x-www-form-urlencoded
+Token: Qydlc3QgdW4gYXBwZWwgw6AgbCdhaWRlSidhaSBwYXMgZGUgbWFpc29uNjk1OTMzMjU1QVRURUZhYmllbm8yMTgxNjk4
+
+

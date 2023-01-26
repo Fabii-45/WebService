@@ -1,0 +1,9 @@
+/motus
+POST /joueur inscrit un joueur
+POST /partie créer une partie
+
+PUT /partie action sur la partie qui la modifie
+
+GET /partie retourne les essais de la partie
+
+GET /partie/nbcoups retourne le nombre d'essai de la partie

@@ -4,7 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.*;
 import proxy.dto.EtatPartie;
 
+import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.rmi.server.ExportException;
 import java.util.List;
 
 public class MotusProxyImpl implements MotusProxy{
@@ -15,12 +19,34 @@ public class MotusProxyImpl implements MotusProxy{
 
     @Override
     public String creerUnCompte(String pseudo) throws PseudoDejaPrisException {
-        return null;
+        HttpResponse response = null;
+        try{
+             HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8080/motus/joueur"))
+                    .setHeader("Content-Type", "application/x-www-form-urlencoded")
+                    .POST(HttpRequest.BodyPublishers.ofString("pseudo="+pseudo))
+                    .build();
+             response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return response.toString();
     }
 
     @Override
     public String creerUnePartie(String tokenAuthentification) {
-        return null;
+        HttpResponse response = null;
+        try{
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8080/motus/partie"))
+                    .setHeader("Content-Type", "application/x-www-form-urlencoded")
+                    .header("Token=",tokenAuthentification)
+                    .build();
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return response.toString();
     }
 
     @Override

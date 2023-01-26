@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WebService.iml" filepath="$PROJECT_DIR$/.idea/WebService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tp1/exercice2/motusclient/motusclient.iml" filepath="$PROJECT_DIR$/tp1/exercice2/motusclient/motusclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tp1/exercice2/motusws/motusws.iml" filepath="$PROJECT_DIR$/tp1/exercice2/motusws/motusws.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,64 @@
+= TP1. Utiliser un Web-service -- Exercice 1
+:toc:
+
+
+== Objectifs
+
+* Découvrir le requêtage d'un Web-service REST déployé.
+* Construire les différents types de requêtes HTTP, avec passage d'informations.
+
+
+== Travail à réaliser
+
+Un Web-service est en fonction à l'adresse `https://pdicost.univ-orleans.fr/.m1ws/enjoy/`
+
+Suivez les étapes suivantes, en utilisant le client REST proposé par IntelliJ :
+
+. Envoyez une requête en méthode `POST` sur l'URI `⋅⋅⋅/enjoy/student` votre numéro d'étudiant sous forme de _paramètre encodé_ (`application/x-www-form-urlencoded`).
+
+. Vous pouvez alors consulter, soit en JSON soit en XML, votre objet en envoyant une requête en méthode `GET` sur l'URI `⋅⋅⋅/enjoy/student/VOTRENUMERO`.
+
+. Vous constatez que ni votre adresse ni votre nom ne sont connus dans le SI.
+Mettez-les à jour en les envoyant en méthode `PUT` sur l'URI `⋅⋅⋅/enjoy/student/VOTRENUMERO/identity`.
+Attention on attend ici du XML et un objet de la classe `IdentityData` :
++
+[source, java]
+----
+public class IdentityData {
+
+  private String nom;
+  private String prenom;
+
+  // getters/setters
+}
+----
+
+. Vérifiez que votre identité a bien été mise à jour.
+
+. Mettez à jour votre adresse complète en envoyant une requête en méthode `PATCH` sur l'URI `⋅⋅⋅/enjoy/student/VOTRENUMERO/location`.
+Cette fois-ci, nous attendons du Json et un objet de la classe `LocationData` (voir la classe ci-après).
+Malheureusement, le développeur de la méthode `PATCH` a mal codé la méthode, et on ne peut mettre à jour qu'un seul champ à chaque appel !
++
+[source, java]
+----
+public class LocationData {
+
+  private String adresse;
+  private Integer codePostal;
+  private String ville;
+
+  // getters/setters
+}
+----
+
+. Vérifiez que toutes vos données sont bien mises à jour.
+
+. Récupérez maintenant votre token en envoyant une requête en méthode `GET` sur l'URI `⋅⋅⋅/enjoy/student/VOTRENUMERO/token`.
+Si tout va bien, vous devez voir apparaître dans le message de retour votre token.
+
+. Envoyez une requête en méthode `POST` sur l'URI `⋅⋅⋅/enjoy/student/VOTRENUMERO/token` avec votre token.
+Si tout va bien, le message de retour vous confirmera la réussite de votre enregistrement.
+
+. Bravo, vous maîtrisez l'utilisation d'un Web-service REST !
+
+

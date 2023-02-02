@@ -24,6 +24,7 @@ public class ControleurRest {
     FacadeParties facadeParties;
 
     @PostMapping(value = "/joueur")
+
     public ResponseEntity<String> inscription(@RequestParam String pseudo) {
         try {
             String ticketIdentite = facadeJoueurs.inscription(pseudo);
